@@ -72,6 +72,12 @@
   color: white;
 }
 
+#clearbutton{
+  text-align: center;
+  color: white;
+  background-color:#1a000d;
+}
+
 
 body {
   background-image: url("lars-bg.jpg");

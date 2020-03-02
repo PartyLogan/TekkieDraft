@@ -198,6 +198,12 @@ function drop (ev) {
   srcParent.appendChild (tgt);
 }
 
+function ClearSearchField(){
+  var search = document.getElementById("search");
+  search.value = "";
+  hideDivs();
+}
+
 function pickRandom(){
   var button =  document.getElementById("randomButton");
   var rand = Math.floor((Math.random() * (tekkieCharCount - 0) + 0));
@@ -242,6 +248,8 @@ function hideDivs(){
     }
   }
 }
+
+
 
 window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
 

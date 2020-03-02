@@ -94,7 +94,10 @@
   </section>
 
   <section id="characters">
-    <form>Search: <input type="text" id="search" name="search" oninput="hideDivs()"></form>
+    <form>
+      Search: <input type="text" id="search" name="search" oninput="hideDivs()">
+      <button id="clearbutton" type="button" onclick="ClearSearchField()">Clear Search</button>
+    </form>
     <div id="char1" ondrop="drop(event)" ondragover="allowDrop(event)">
       <img src="images\lars.jpg" draggable="true" ondragstart="drag(event)" id="lars moose" width="76" height="59">
     </div>
