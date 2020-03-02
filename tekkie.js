@@ -113,6 +113,8 @@ function APickCountDown(){
     teamAReserveTime-=1;
     teamAReserveText.value = teamAReserveTime;
     if(teamAReserveTime <= 0){
+      teamAReserveTime=0;
+      teamAReserveText.value = teamAReserveTime;
       clearInterval(teamACountInterval);
       StartStopATimer();
       return;
@@ -158,6 +160,8 @@ function BPickCountDown(){
     teamBReserveTime-=1;
     teamBReserveText.value = teamBReserveTime;
     if(teamBReserveTime <= 0){
+      teamBReserveTime=0;
+      teamBReserveText.value = teamAReserveTime;
       clearInterval(teamBCountInterval);
       StartStopBTimer();
       return;
