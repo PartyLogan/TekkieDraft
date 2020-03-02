@@ -33,21 +33,21 @@
   position:relative;
   vertical-align: top;
   float:left;
-  color: whitesmoke;
+  color: white;
 }
 
 #baninfo{
   vertical-align: top;
   text-align:right; 
   position:relative;
-  color: whitesmoke;
+  color: white;
 }
 
 #teamA {
   text-align: left;
   width: 49%;
   float:left;
-  color: whitesmoke;
+  color: white;
   border: 1px solid white;
   background-color: rgba(102,0,0, 0.5)
 }
@@ -56,7 +56,7 @@
   text-align:left;
   width:49%;
   float:left;
-  color: whitesmoke;
+  color: white;
   border: 1px solid white;
   background-color: rgba(0,0,77, 0.5)
 }
@@ -78,4 +78,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
- 
+ footer{
+   color: white;
+   font-size: 10px;
+ }
