@@ -36,7 +36,7 @@ var tekkieChars = [
 "Lee",
 "Leo",
 "Lili",
-"Lucky Chole",
+"Lucky Chloe",
 "Master Raven",
 "Miguel",
 "Nina",
@@ -51,13 +51,13 @@ var tekkieChars = [
 "Ganryu",
 "Julia",
 "Feng",
-"Fahkumram",
+//"Fahkumram",
 "Anna",
 "Eliza",
 "Lei",
 "Geese",
 "Noctis",
-"Armour King",
+"Armor King",
 "Zafina",
 "Marduk"
 ];
@@ -196,8 +196,11 @@ function drop (ev) {
 
 function pickRandom(){
   var button =  document.getElementById("randomButton");
-  var rand = Math.floor((Math.random() * tekkieCharCount) + 1);
-  button.innerText = tekkieChars[rand];
+  var rand = Math.floor((Math.random() * (tekkieCharCount - 0) + 0));
+  //button.innerText = tekkieChars[rand];
+  var search = document.getElementById("search");
+  search.value = tekkieChars[rand];
+  hideDivs();
 }
 
 function hideDivs(){
@@ -240,7 +243,7 @@ window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.ke
 
 window.onload=function() {
   document.getElementById("BPickButton").disabled=true;
-  this.tekkieCharCount=this.tekkieChars.length-1;
+  this.tekkieCharCount=this.tekkieChars.length;
   if(screen.width == 1920){
     document.body.style.zoom="125%"
   }
