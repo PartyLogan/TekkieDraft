@@ -76,7 +76,7 @@ function SetTimers(ev){
   teamBReserveText.value = reserveTime;
   teamAReserveTime=reserveTime;
   teamBReserveTime=reserveTime;
-  document.getElementById("BPickButton").disabled=false;
+  document.getElementById("BPickButton").style.display = 'inline';
   teamAPickButton.onclick = StartStopATimer;
   teamAPickButton.innerText = "Start Timer";
   teamBPickButton.onclick = StartStopBTimer;
@@ -254,7 +254,7 @@ function hideDivs(){
 window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
 
 window.onload=function() {
-  document.getElementById("BPickButton").disabled=true;
+  document.getElementById("BPickButton").style.display = 'none';
   this.tekkieCharCount=this.tekkieChars.length;
   if(screen.width == 1920){
     document.body.style.zoom="125%"

@@ -72,7 +72,7 @@
   color: white;
 }
 
-#clearbutton{
+#clearbutton, #BPickButton, #APickButton{
   text-align: center;
   color: white;
   background-color:#1a000d;
@@ -96,4 +96,9 @@ body {
 p { margin:5px; }
 #characters{
   color:white;
+}
+
+input{
+  background-color:#1a000d;
+  color : white;
 }
