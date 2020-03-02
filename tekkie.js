@@ -204,6 +204,8 @@ function pickRandom(){
 window.onload=function() {
   document.getElementById("BPickButton").disabled=true;
   this.tekkieCharCount=this.tekkieChars.length-1;
-
-  document.body.style.zoom="125%"
+  if(screen.width == 1920){
+    document.body.style.zoom="125%"
+  }
+  
 }
