@@ -186,8 +186,8 @@ function drop (ev) {
   var srcParent = src.parentNode;
   var tgt = ev.currentTarget.firstElementChild;
   if(tgt == null){
-    var data = ev.dataTransfer.getData("src");
-    ev.target.appendChild(document.getElementById(data));
+    src.parentElement.removeChild(src);
+    ev.target.appendChild(src);
     return;
   }
   ev.currentTarget.replaceChild (src, tgt);
@@ -198,6 +198,42 @@ function pickRandom(){
   var button =  document.getElementById("randomButton");
   var rand = Math.floor((Math.random() * tekkieCharCount) + 1);
   button.innerText = tekkieChars[rand];
+}
+
+function hideDivs(){
+  var db = document.body.getElementsByTagName('img');
+  var search = document.getElementById("search");
+  
+  for(var i = 0; i< db.length; i++){
+    if(db[i].parentElement.parentElement.id != "characters"){
+      continue;
+    }
+    var s = db[i].id;
+    if(search.value == ""){
+      db[i].style.display = 'block'; 
+    }
+    if(!s.includes(search.value.toLowerCase())){
+      db[i].style.display = 'none';
+      db[i].parentElement.style.display='none';
+    }else{
+      db[i].style.display = 'block'; 
+      db[i].parentElement.style.display='block';
+    }
+  }
+
+  var db2 = document.body.getElementsByTagName('div');
+  for(var x = 0; x < db2.length; x ++){
+    if(!db2[x].id.toLowerCase().includes("char")){
+      continue;
+    }
+    if(db2[x].firstElementChild == null){
+      if(search.value == ""){
+        db2[x].style.display = 'block';
+      }else{
+        db2[x].style.display = 'none';
+      }
+    }
+  }
 }
 
 
