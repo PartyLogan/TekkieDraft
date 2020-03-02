@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html><title>Tekkie Draft</title>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="tekkie.js"></script>
+<head>
+  <div id="info">
+  <h1>Tekkie Draft Mode</h1>
+  <p>Set the timers, use the Start/Stop button to control the timers. 
+  <br>Reserve time happens automatically. Use the random button if a team runs out of time.</p>
+  <p>Dota timers: Pick/Ban 35secs, Reserve time 130secs.</p></div><br>
+  <div id="baninfo">
+  <p><b>Dota pick/ban order.</b><br> <i>Reverse the order if Team B going first.</i><br>
+    1st Ban Phase: 
+    A, B, A, B, A, B <br>
+    1st Pick Phase: 
+    A, B, B, A <br>
+    2nd Ban Phase: 
+    A, B, A, B <br>
+    2nd Pick Phase: 
+    B, A, B, A <br>
+    3rd Ban Phase: 
+    B, A <br>
+    3rd Pick Phase:   
+    A, B <br>
+    </p></div>
+</head>
+<body>
+  <section id="teamA">
+    <form>
+        <label for="Areserve">Team A Reserve Time:</label>
+        <input type="text" id="Areserve" name="Areserve" size="5" value="130"><br>
+        <label for="Apick">Team A Pick Time:</label>
+        <input type="text" id="Apick" name="Apick" size="5" value="35">
+        <button id="APickButton" type="button" onclick="SetTimers()">Set Timers</button>
+    </form>
+    <div><p>Team A Bans</p>
+    <div id="ABan1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="ABan2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="ABan3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="ABan4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="ABan5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="ABan6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div><br><br><br><br><br>
+    <form>
+      <label for="fname">Team A players:</label><br>
+      <input type="text" id="Aname1" name="Aname1" size="8">
+      <input type="text" id="Aname2" name="Aname2"size="8">
+      <input type="text" id="Aname3" name="Aname3"size="8">
+      <input type="text" id="Aname4" name="Aname4"size="8">
+      <input type="text" id="Aname5" name="Aname5"size="8">
+    </form>
+    <div>
+    <div id="APick1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="APick2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="APick3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="APick4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="APick5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+    
+  </section>
+
+  <section id="teamB">
+    <form>
+        <label for="Breserve">Team B Reserve Time:</label>
+        <input type="text" id="Breserve" name="Breserve" size="5" value="130"><br>
+        <label for="Apick">Team B Pick Time:</label>
+        <input type="text" id="Bpick" name="Bpick" size="5" value="35">
+        <button id="BPickButton" type="button" onclick="SetTimers()">Set Timers</button>
+    </form>
+    <div><p>Team B Bans</p>
+    <div id="BBan1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BBan2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BBan3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BBan4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BBan5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BBan6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div><br><br><br><br><br>
+    <form>
+      <label for="fname">Team B players:</label><br>
+      <input type="text" id="Bname1" name="Bname1" size="8">
+      <input type="text" id="Bname2" name="Bname2"size="8">
+      <input type="text" id="Bname3" name="Bname3"size="8">
+      <input type="text" id="Bname4" name="Bname4"size="8">
+      <input type="text" id="Bname5" name="Bname5"size="8">
+    </form>
+    <div>
+    <div id="BPick1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BPick2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BPick3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BPick4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="BPick5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+    
+  </section>
+
+  <section id="characters">
+    <div id="char1" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\lars.jpg" draggable="true" ondragstart="drag(event)" id="lars" width="76" height="59">
+    </div>
+    <div id="char2" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\akuma.jpg" draggable="true" ondragstart="drag(event)" id="akuma" width="76" height="59">
+    </div>
+    <div id="char3" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\anna.jpg" draggable="true" ondragstart="drag(event)" id="anna" width="76" height="59">
+    </div>
+    <div id="char4" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\alisa.jpg" draggable="true" ondragstart="drag(event)" id="alisa" width="76" height="59">
+    </div>
+    <div id="char5" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\armourking.jpg" draggable="true" ondragstart="drag(event)" id="ak" width="76" height="59">
+    </div>
+    <div id="char6" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\asuka.jpg" draggable="true" ondragstart="drag(event)" id="asuka" width="76" height="59">
+    </div>
+    <div id="char7" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\bob.jpg" draggable="true" ondragstart="drag(event)" id="bob" width="76" height="59">
+    </div>
+    <div id="char8" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\bryan.jpg" draggable="true" ondragstart="drag(event)" id="bryan  " width="76" height="59">
+    </div>
+    <div id="char9" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\chloe.jpg" draggable="true" ondragstart="drag(event)" id="chloe" width="76" height="59">
+    </div>
+    <div id="char10" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\claudio.jpg" draggable="true" ondragstart="drag(event)" id="claudio" width="76" height="59">
+    </div>
+    <div id="char11" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\deviljin.jpg" draggable="true" ondragstart="drag(event)" id="deviljin" width="76" height="59">
+    </div>
+    <div id="char12" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\drag.jpg" draggable="true" ondragstart="drag(event)" id="drag" width="76" height="59">
+    </div>
+    <div id="char13" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\eddy.jpg" draggable="true" ondragstart="drag(event)" id="eddy" width="76" height="59">
+    </div>
+    <div id="char14" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\eliza.jpg" draggable="true" ondragstart="drag(event)" id="eliza" width="76" height="59"> 
+    </div>
+    <div id="char15" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\feng.jpg" draggable="true" ondragstart="drag(event)" id="feng" width="76" height="59">
+    </div>
+    <div id="char16" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\ganryu.jpg" draggable="true" ondragstart="drag(event)" id="ganryu" width="76" height="59"> 
+    </div>
+    <div id="char17" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\geese.jpg" draggable="true" ondragstart="drag(event)" id="geese" width="76" height="59">
+    </div>
+    <div id="char18" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\gigas.jpg" draggable="true" ondragstart="drag(event)" id="gigas" width="76" height="59">
+    </div>
+    <div id="char19" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\hei.jpg" draggable="true" ondragstart="drag(event)" id="hei" width="76" height="59">
+    </div>
+    <div id="char20" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\hwo.jpg" draggable="true" ondragstart="drag(event)" id="hwo" width="76" height="59">
+    </div>
+    <div id="char21" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\jack.jpg" draggable="true" ondragstart="drag(event)" id="jack" width="76" height="59">
+    </div>
+    <div id="char22" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\jin.jpg" draggable="true" ondragstart="drag(event)" id="jin" width="76" height="59">
+    </div>
+    <div id="char23" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\josie.jpg" draggable="true" ondragstart="drag(event)" id="josie" width="76" height="59">
+    </div>
+    <div id="char24" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\julia.jpg" draggable="true" ondragstart="drag(event)" id="julia" width="76" height="59">
+    </div>
+    <div id="char25" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\kat.jpg" draggable="true" ondragstart="drag(event)" id="kat" width="76" height="59">
+    </div>
+    <div id="char26" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\kazumi.jpg" draggable="true" ondragstart="drag(event)" id="kazumi" width="76" height="59">
+    </div>
+    <div id="char27" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\kazuya.jpg" draggable="true" ondragstart="drag(event)" id="kazuya" width="76" height="59">
+    </div>
+    <div id="char28" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\king.jpg" draggable="true" ondragstart="drag(event)" id="king" width="76" height="59">
+    </div>
+    <div id="char29" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\law.jpg" draggable="true" ondragstart="drag(event)" id="law" width="76" height="59">
+    </div>
+    <div id="char30" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\lee.jpg" draggable="true" ondragstart="drag(event)" id="lee" width="76" height="59">
+    </div>
+    <div id="char31" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\lei.jpg" draggable="true" ondragstart="drag(event)" id="lei" width="76" height="59">   
+    </div>
+    <div id="char32" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\leo.jpg" draggable="true" ondragstart="drag(event)" id="leo" width="76" height="59">
+    </div>
+    <div id="char33" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\leroy.jpg" draggable="true" ondragstart="drag(event)" id="leroy" width="76" height="59">
+    </div>
+    <div id="char34" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\lilli.jpg" draggable="true" ondragstart="drag(event)" id="lilli" width="76" height="59">
+    </div>
+    <div id="char35" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\ling.jpg" draggable="true" ondragstart="drag(event)" id="marduk" width="76" height="59">
+    </div>
+    <div id="char36" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\miguel.jpg" draggable="true" ondragstart="drag(event)" id="miguel" width="76" height="59">
+    </div>
+    <div id="char37" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\negan.jpg" draggable="true" ondragstart="drag(event)" id="negan" width="76" height="59">
+    </div>
+    <div id="char38" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\nina.jpg" draggable="true" ondragstart="drag(event)" id="nina" width="76" height="59">
+    </div>
+    <div id="char39" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\noctis.jpg" draggable="true" ondragstart="drag(event)" id="noctis" width="76" height="59">
+    </div>
+    <div id="char40" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\paul.jpg" draggable="true" ondragstart="drag(event)" id="paul" width="76" height="59">
+    </div>
+    <div id="char41" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\panda.jpg" draggable="true" ondragstart="drag(event)" id="panda" width="76" height="59">
+    </div>
+    <div id="char42" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\raven.jpg" draggable="true" ondragstart="drag(event)" id="raven" width="76" height="59">
+    </div>
+    <div id="char43" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\shaheen.jpg" draggable="true" ondragstart="drag(event)" id="shaheen" width="76" height="59">
+    </div>
+    <div id="char44" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\steve.jpg" draggable="true" ondragstart="drag(event)" id="steve" width="76" height="59">
+    </div>
+    <div id="char45" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\yoshi.jpg" draggable="true" ondragstart="drag(event)" id="yoshi" width="76" height="59">
+    </div>
+    <div id="char46" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\zafina.jpg" draggable="true" ondragstart="drag(event)" id="zafina" width="76" height="59">
+    </div>
+    <div id="char47" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <img src="images\fahkumram.jpg" draggable="true" ondragstart="drag(event)" id="fahkumram" width="76" height="59">
+    </div>
+  </section>
+  <section id="random">
+  <form><button id="randomButton" type="button" onclick="pickRandom()">Random Character</button></form>
+  </section>
+</body>
+</html>
