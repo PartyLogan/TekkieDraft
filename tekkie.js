@@ -161,7 +161,7 @@ function BPickCountDown(){
     teamBReserveText.value = teamBReserveTime;
     if(teamBReserveTime <= 0){
       teamBReserveTime=0;
-      teamBReserveText.value = teamAReserveTime;
+      teamBReserveText.value = teamBReserveTime;
       clearInterval(teamBCountInterval);
       StartStopBTimer();
       return;
