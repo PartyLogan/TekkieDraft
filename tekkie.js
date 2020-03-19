@@ -81,6 +81,8 @@ function SetTimers(ev){
   teamAPickButton.innerText = "Start Timer";
   teamBPickButton.onclick = StartStopBTimer;
   teamBPickButton.innerText = "Start Timer";
+  play();
+  playmus();
 }
 //a timers
 function StartStopATimer(ev){
@@ -88,6 +90,9 @@ function StartStopATimer(ev){
   var teamAPickText = document.getElementById("Apick");
   var teamAReserveText = document.getElementById("Areserve");
   if(teamACounting == false){
+    currentSound = "radPick";
+    setSoundFile(currentSound);
+    play();
     teamAPickButton.innerText = "Stop Timer";
     teamACounting = true;
     teamAPickTime = pickTime;
@@ -124,6 +129,9 @@ function APickCountDown(){
     teamAPickTime -= 1;
     teamAPickText.value = teamAPickTime;
     if(teamAPickTime <= 0){
+      currentSound = "reserveTime";
+      setSoundFile(currentSound);
+      play();
       teamAUsingReserve = true;
     }
   }
@@ -135,6 +143,9 @@ function StartStopBTimer(ev){
   var teamBPickText = document.getElementById("Bpick");
   var teamBReserveText = document.getElementById("Breserve");
   if(teamBCounting == false){
+    currentSound = "direPick";
+    setSoundFile(currentSound);
+    play();
     teamBPickButton.innerText = "Stop Timer";
     teamBCounting = true;
     teamBPickTime = pickTime;
@@ -171,6 +182,9 @@ function BPickCountDown(){
     teamBPickTime -= 1;
     teamBPickText.value = teamBPickTime;
     if(teamBPickTime <= 0){
+      currentSound = "reserveTime";
+      setSoundFile(currentSound);
+      play();
       teamBUsingReserve = true;
     }
   }
@@ -259,5 +273,127 @@ window.onload=function() {
   if(screen.width == 1920){
     document.body.style.zoom="125%"
   }
-  
+  var volumeControl = document.getElementById('vol-control');
+
+  var setVolume = function() { video.volume = this.value / 100; };
+
+  volumeControl.addEventListener('change', changevolume);
+  volumeControl.addEventListener('input', changevolume);
+  volumeControl.addEventListener('change', changemusvolume);
+  volumeControl.addEventListener('input', changemusvolume);
+  currentFile = sCaptsDraft;
+  soundFile.appendChild(sCaptsDraft);
+}
+
+
+volume = 0.25;
+musvolume = 0.1;
+currentFile = "";
+
+//Create the audio tag
+var soundFile = document.createElement("audio");
+soundFile.preload = "auto";
+
+//Create the audio tag
+var musFile = document.createElement("audio");
+musFile.preload = "auto";
+
+var sMus = document.createElement("source");
+sMus.src = "audio/Tekken 5 Theme - Sparking (Nightcore).mp3";
+musFile.appendChild(sMus);
+
+
+//Load the sound file (using a source element for expandability)
+var sCaptsDraft = document.createElement("source");
+sCaptsDraft.src = "audio/Dlc_lina_announcer_type_capt_draft.mp3";
+soundFile.appendChild(sCaptsDraft);
+
+var sDirePick = document.createElement("source");
+sDirePick.src = "audio/Dlc_lina_announcer_pick_dire_01.mp3";
+
+var sRadPick = document.createElement("source");
+sRadPick.src = "audio/Dlc_lina_announcer_pick_rad_01.mp3";
+
+var sDireBan = document.createElement("source");
+sDireBan.src = "audio/Dlc_lina_announcer_ban_dire_01.mp3";
+
+var sRadBan = document.createElement("source");
+sRadBan.src = "audio/Dlc_lina_announcer_ban_rad.mp3";
+
+var sReserveTime = document.createElement("source");
+sReserveTime.src = "audio/Dlc_lina_announcer_time_reserve_01.mp3";
+
+currentSound = "draft";
+
+function setSoundFile(clip){
+  switch(clip){
+    case "draft":
+      soundFile.removeChild(currentFile);
+      soundFile.appendChild(sCaptsDraft);
+      currentFile = sCaptsDraft;
+      break;
+    case "direPick":
+      soundFile.removeChild(currentFile);
+      soundFile.appendChild(sDirePick);
+      currentFile = sDirePick;
+      break;
+    case "radPick":
+      soundFile.removeChild(currentFile);
+      soundFile.appendChild(sRadPick);
+      currentFile = sRadPick;
+      break;
+    case "direBan":
+      soundFile.removeChild(currentFile);
+      soundFile.appendChild(sDireBan);
+      currentFile = sDireBan;
+      break;
+    case "radBan":
+      soundFile.removeChild(currentFile);
+      soundFile.appendChild(sRadBan);
+      currentFile = sRadBan;
+      break;
+    case "reserveTime":
+      soundFile.removeChild(currentFile);
+      soundFile.appendChild(sReserveTime);
+      currentFile = sReserveTime;
+      break;
+  }
+}
+
+//Plays the sound
+function play() {
+  soundFile.load();
+   //Set the current time for the audio file to the beginning
+   soundFile.currentTime = 0.01;
+   soundFile.volume = volume;
+   //Due to a bug in Firefox, the audio needs to be played after a delay
+   setTimeout(function(){soundFile.play();},1);
+}
+
+function changevolume() {
+  var volumeControl = document.getElementById('vol-control');
+  var x = volumeControl.value;
+  var y = x / 100;
+ 
+  volume = y;
+ 
+ }
+
+ function changemusvolume() {
+  var volumeControl = document.getElementById('mus-control');
+  var x = volumeControl.value;
+  var y = x / 100;
+ 
+  musvolume = y;
+  musFile.volume = y;
+ }
+
+ //Plays the sound
+function playmus() {
+    musFile.load();
+   //Set the current time for the audio file to the beginning
+   musFile.currentTime = 0.01;
+   musFile.volume = musvolume;
+   //Due to a bug in Firefox, the audio needs to be played after a delay
+   setTimeout(function(){musFile.play();},1);
 }
