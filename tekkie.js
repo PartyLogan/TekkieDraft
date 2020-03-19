@@ -299,7 +299,7 @@ var musFile = document.createElement("audio");
 musFile.preload = "auto";
 
 var sMus = document.createElement("source");
-sMus.src = "audio/Tekken 5 Theme - Sparking (Nightcore).mp3";
+sMus.src = "audio/BIG CHUNGUS Official Main Theme Song by Endigo.mp3";
 musFile.appendChild(sMus);
 
 
