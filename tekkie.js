@@ -274,13 +274,13 @@ window.onload=function() {
     document.body.style.zoom="125%"
   }
   var volumeControl = document.getElementById('vol-control');
-
-  var setVolume = function() { video.volume = this.value / 100; };
-
+  var volumeMusControl = document.getElementById('mus-control');
   volumeControl.addEventListener('change', changevolume);
   volumeControl.addEventListener('input', changevolume);
-  volumeControl.addEventListener('change', changemusvolume);
-  volumeControl.addEventListener('input', changemusvolume);
+  volumeMusControl.addEventListener('change', changemusvolume);
+  volumeMusControl.addEventListener('input', changemusvolume);
+  volumeMusControl.value = musvolume*100;
+  volumeControl.value = volume*100;
   currentFile = sCaptsDraft;
   soundFile.appendChild(sCaptsDraft);
 }
@@ -380,12 +380,14 @@ function changevolume() {
  }
 
  function changemusvolume() {
-  var volumeControl = document.getElementById('mus-control');
-  var x = volumeControl.value;
+  var volumeMusControl = document.getElementById('mus-control');
+  var x = volumeMusControl.value;
   var y = x / 100;
  
   musvolume = y;
-  musFile.volume = y;
+  musFile.pause();
+  musFile.volume = musvolume;
+  musFile.play();
  }
 
  //Plays the sound
@@ -394,6 +396,7 @@ function playmus() {
    //Set the current time for the audio file to the beginning
    musFile.currentTime = 0.01;
    musFile.volume = musvolume;
+   musFile.loop = true;
    //Due to a bug in Firefox, the audio needs to be played after a delay
    setTimeout(function(){musFile.play();},1);
 }
