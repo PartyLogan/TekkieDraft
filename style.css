@@ -96,10 +96,11 @@ body {
  footer{
    color: white;
    font-size: 12px;
+   background-color: rgba(90, 90, 90, 0.5)
  }
 
  a {
-  color: hotpink;
+  color:rgb(94, 15, 15);
 }
 
 p { margin:5px; }
