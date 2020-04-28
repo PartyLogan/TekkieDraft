@@ -459,6 +459,7 @@ function playmus() {
            return true;
        }
        else {
+           alert('Incorrect, try again. Please contact Ravenboy or PartyLogan to gain access.');
            passwordProtect();
            return false;
        }
