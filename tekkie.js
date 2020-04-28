@@ -429,7 +429,7 @@ function playmus() {
 
   //Protect only once per browser session? (0=no, 1=yes)
    //Specifying 0 will cause protect to load every time page is loaded
-   var once_per_session=1
+   var once_per_session=0
    var bool
 
    function get_cookie(Name) {
