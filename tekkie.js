@@ -271,7 +271,7 @@ window.onload=function() {
   document.getElementById("BPickButton").style.display = 'none';
   this.tekkieCharCount=this.tekkieChars.length;
   if(screen.width == 1920){
-    document.body.style.zoom="125%"
+    document.body.style.zoom="120%"
   }
   var volumeControl = document.getElementById('vol-control');
   var volumeMusControl = document.getElementById('mus-control');
@@ -299,11 +299,31 @@ var musFile = document.createElement("audio");
 musFile.preload = "auto";
 
 var sMus = document.createElement("source");
-sMus.src = "audio/BIG CHUNGUS Official Main Theme Song by Endigo.mp3";
+sMus.src = "audio/Tekken Tag Tournament 2 OST Yur Sunset.mp3";
 musFile.appendChild(sMus);
 
 
 //Load the sound file (using a source element for expandability)
+var sCaptsDraft = document.createElement("source");
+sCaptsDraft.src = "audio/Dlc_rick_and_morty_announcer_captains_draft_02.mp3";
+soundFile.appendChild(sCaptsDraft);
+
+var sDirePick = document.createElement("source");
+sDirePick.src = "audio/Dlc_rick_and_morty_announcer_dire_team_pick_02.mp3";
+
+var sRadPick = document.createElement("source");
+sRadPick.src = "audio/Dlc_rick_and_morty_announcer_radiant_team_pick_02.mp3";
+
+var sDireBan = document.createElement("source");
+sDireBan.src = "audio/Dlc_rick_and_morty_announcer_dire_team_ban_03.mp3";
+
+var sRadBan = document.createElement("source");
+sRadBan.src = "audio/Dlc_rick_and_morty_announcer_radiant_team_ban_02.mp3";
+
+var sReserveTime = document.createElement("source");
+sReserveTime.src = "audio/Dlc_rick_and_morty_announcer_reserve_time_04.mp3";
+
+/*
 var sCaptsDraft = document.createElement("source");
 sCaptsDraft.src = "audio/Dlc_lina_announcer_type_capt_draft.mp3";
 soundFile.appendChild(sCaptsDraft);
@@ -322,6 +342,8 @@ sRadBan.src = "audio/Dlc_lina_announcer_ban_rad.mp3";
 
 var sReserveTime = document.createElement("source");
 sReserveTime.src = "audio/Dlc_lina_announcer_time_reserve_01.mp3";
+*/
+
 
 currentSound = "draft";
 
@@ -374,7 +396,9 @@ function changevolume() {
   var volumeControl = document.getElementById('vol-control');
   var x = volumeControl.value;
   var y = x / 100;
- 
+  if(y < 0.1){
+    y=0.1;
+  }
   volume = y;
  
  }
@@ -383,9 +407,10 @@ function changevolume() {
   var volumeMusControl = document.getElementById('mus-control');
   var x = volumeMusControl.value;
   var y = x / 100;
- 
   musvolume = y;
-  musFile.pause();
+  if(musvolume < 0.1){
+    musvolume = 0.1;
+  }
   musFile.volume = musvolume;
   musFile.play();
  }
@@ -400,3 +425,54 @@ function playmus() {
    //Due to a bug in Firefox, the audio needs to be played after a delay
    setTimeout(function(){musFile.play();},1);
 }
+
+
+  //Protect only once per browser session? (0=no, 1=yes)
+   //Specifying 0 will cause protect to load every time page is loaded
+   var once_per_session=1
+   var bool
+
+   function get_cookie(Name) {
+    var search = Name + "="
+    var returnvalue = "";
+    if (document.cookie.length > 0) {
+      offset = document.cookie.indexOf(search)
+      if (offset != -1) { // if cookie exists
+          offset += search.length
+          // set index of beginning of value
+          end = document.cookie.indexOf(";", offset);
+          // set index of end of cookie value
+          if (end == -1)
+               end = document.cookie.length;
+          returnvalue=unescape(document.cookie.substring(offset, end))
+          }
+     }
+    return returnvalue;
+   }
+
+   function passwordProtect(){
+       var password;
+       var pass1 = "bigchungus";
+       password = prompt('Enter password to view page: ',' ');
+       if(password === pass1){
+           alert('Correct password, click ok to enter');
+           return true;
+       }
+       else {
+           passwordProtect();
+           return false;
+       }
+   }
+
+   function loadornot(){
+       if (get_cookie('protect')===''){
+           bool = passwordProtect();
+           if(bool === true)
+               document.cookie="protect=yes";
+       }
+   }
+
+   if (once_per_session===0)
+       passwordProtect()
+   else
+       loadornot()
