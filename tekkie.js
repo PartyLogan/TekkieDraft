@@ -460,7 +460,6 @@ function playmus() {
           return true;
       }else if(password === pass2){
         alert('Correct password, click ok to enter');
-        once_per_session=1;
         window.location="indexOrig.html";
         return true;
       }
