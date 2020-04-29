@@ -299,31 +299,12 @@ var musFile = document.createElement("audio");
 musFile.preload = "auto";
 
 var sMus = document.createElement("source");
-sMus.src = "audio/Tekken Tag Tournament 2 OST Yur Sunset.mp3";
+sMus.src = "audio/BIG CHUNGUS Official Main Theme Song by Endigo.mp3";
 musFile.appendChild(sMus);
 
 
 //Load the sound file (using a source element for expandability)
-var sCaptsDraft = document.createElement("source");
-sCaptsDraft.src = "audio/Dlc_rick_and_morty_announcer_captains_draft_02.mp3";
-soundFile.appendChild(sCaptsDraft);
 
-var sDirePick = document.createElement("source");
-sDirePick.src = "audio/Dlc_rick_and_morty_announcer_dire_team_pick_02.mp3";
-
-var sRadPick = document.createElement("source");
-sRadPick.src = "audio/Dlc_rick_and_morty_announcer_radiant_team_pick_02.mp3";
-
-var sDireBan = document.createElement("source");
-sDireBan.src = "audio/Dlc_rick_and_morty_announcer_dire_team_ban_03.mp3";
-
-var sRadBan = document.createElement("source");
-sRadBan.src = "audio/Dlc_rick_and_morty_announcer_radiant_team_ban_02.mp3";
-
-var sReserveTime = document.createElement("source");
-sReserveTime.src = "audio/Dlc_rick_and_morty_announcer_reserve_time_04.mp3";
-
-/*
 var sCaptsDraft = document.createElement("source");
 sCaptsDraft.src = "audio/Dlc_lina_announcer_type_capt_draft.mp3";
 soundFile.appendChild(sCaptsDraft);
@@ -342,7 +323,7 @@ sRadBan.src = "audio/Dlc_lina_announcer_ban_rad.mp3";
 
 var sReserveTime = document.createElement("source");
 sReserveTime.src = "audio/Dlc_lina_announcer_time_reserve_01.mp3";
-*/
+
 
 
 currentSound = "draft";
@@ -396,9 +377,6 @@ function changevolume() {
   var volumeControl = document.getElementById('vol-control');
   var x = volumeControl.value;
   var y = x / 100;
-  if(y < 0.1){
-    y=0.1;
-  }
   volume = y;
  
  }
@@ -408,9 +386,6 @@ function changevolume() {
   var x = volumeMusControl.value;
   var y = x / 100;
   musvolume = y;
-  if(musvolume < 0.1){
-    musvolume = 0.1;
-  }
   musFile.volume = musvolume;
   musFile.play();
  }
@@ -426,10 +401,10 @@ function playmus() {
    setTimeout(function(){musFile.play();},1);
 }
 
-
+/*
   //Protect only once per browser session? (0=no, 1=yes)
    //Specifying 0 will cause protect to load every time page is loaded
-   var once_per_session=0
+   var once_per_session=1
    var bool
 
    function get_cookie(Name) {
@@ -451,24 +426,24 @@ function playmus() {
    }
 
    function passwordProtect(){
-      var password;
-      var pass1 = "bigchungus";
-      var pass2 = "twitch.tv/ravenboy"
-      password = prompt('Enter password to view page: ',' ');
-      if(password === pass1){
-          alert('Correct password, click ok to enter');
-          return true;
-      }else if(password === pass2){
-        alert('Correct password, click ok to enter');
-        once_per_session=1;
-        window.location="indexOrig.html";
-        return true;
-      }
-      else {
-          alert('Incorrect, try again. Please contact Ravenboy or PartyLogan to gain access.');
-          passwordProtect();
-          return false;
-      }
+       var password;
+       var pass1 = "bigchungus";
+       var pass2 = "twitch.tv/ravenboy"
+       password = prompt('Enter password to view page: ',' ');
+       if(password === pass1){
+           alert('Correct password, click ok to enter');
+           return true;
+       }else if(password === pass2){
+         alert('Correct password, click ok to enter');
+         once_per_session=1;
+         window.location="indexOrig.html";
+         return true;
+       }
+       else {
+           alert('Incorrect, try again. Please contact Ravenboy or PartyLogan to gain access.');
+           passwordProtect();
+           return false;
+       }
    }
 
    function loadornot(){
@@ -483,3 +458,4 @@ function playmus() {
        passwordProtect()
    else
        loadornot()
+*/

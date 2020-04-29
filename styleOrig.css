@@ -1,0 +1,115 @@
+#BPick1, #BPick2, #BPick3, #BPick4, #BPick5, #APick1, #APick2, #APick3, #APick4, #APick5
+{
+  float: left;
+  width: 76px;
+  height: 59px;
+  margin: 5px;
+  border: 2px solid white;
+  background-color: #336699; 
+}
+
+h1 {
+  margin-top: 0;
+}
+p {
+  margin-top: 0;
+}
+
+#BBan1, #BBan2, #BBan3, #BBan4, #BBan5, #BBan6, #ABan1, #ABan2, #ABan3, #ABan4, #ABan5, #ABan6
+{
+  float: left;
+  width: 76px;
+  height: 59px;
+  margin: 5px;
+  border: 2px solid white;
+  background-color: #800000; 
+}
+#char1,#char2,#char3,#char4,#char5,#char6,#char7,#char8,#char9,#char10,#char11,#char12,#char13,#char14,#char15,#char16,#char17,
+#char18,#char19,#char20,#char21,#char22,#char23,#char24,#char25,#char26,#char27,#char28,#char29,#char30,#char31,#char32,#char33,#char34,
+#char35,#char36,#char37,#char38,#char39,#char40,#char41,#char42,#char43,#char44,#char45,#char46,#char47, #char48{
+  float: left;
+  width: 76px;
+  height: 59px;
+  margin: 5px;
+  border: 2px solid white;
+  background-color: #1a000d; 
+}
+
+#info{
+  text-align:left; 
+  position:relative;
+  vertical-align: top;
+  float:left;
+  color: white;
+  background-color: rgba(90, 90, 90, 0.7)
+}
+
+#baninfo{
+  vertical-align: top;
+  text-align:right; 
+  position:relative;
+  color: white;
+  
+}
+
+#teamA {
+  text-align: left;
+  width: 49%;
+  float:left;
+  color: white;
+  border: 1px solid white;
+  background-color: rgba(102,0,0, 0.5)
+}
+
+#teamB {
+  text-align:left;
+  width:49%;
+  float:left;
+  color: white;
+  border: 1px solid white;
+  background-color: rgba(0,0,77, 0.5)
+}
+
+#randomButton{
+  text-align: center; 
+  height:63px;
+  width:79px;
+  margin:5px;
+  padding: 0px;
+  border: 2px solid white;
+  background-color:#1a000d;
+  color: white;
+}
+
+#clearbutton, #BPickButton, #APickButton{
+  text-align: center;
+  color: white;
+  background-color:#1a000d;
+}
+
+
+body {
+  background-image: url("lars-bg.jpg");
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ footer{
+   color: white;
+   font-size: 12px;
+   background-color: rgba(90, 90, 90, 0.5)
+ }
+
+ a {
+  color:hotpink;
+}
+
+p { margin:5px; }
+#characters{
+  color:white;
+}
+
+input{
+  background-color:#1a000d;
+  color : white;
+}
+
