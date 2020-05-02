@@ -452,7 +452,7 @@ function playmus() {
 
    function passwordProtect(){
       var password;
-      var pass1 = "benisorriot";
+      var pass1 = "bigchungus2";
       var pass2 = "twitch.tv/ravenboy"
       password = prompt('Enter password to view page: ',' ');
       if(password === pass1){
