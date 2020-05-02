@@ -455,12 +455,10 @@ function playmus() {
       var pass1 = "bigchungus";
       var pass2 = "twitch.tv/ravenboy"
       password = prompt('Enter password to view page: ',' ');
-      if(password === pass1){
+      if(password === pass2){
           alert('Correct password, click ok to enter');
-          window.location="indexOrig.html
-          
           return true;
-      }else if(password === pass2){
+      }else if(password === pass1){
         alert('Correct password, click ok to enter');
         window.location="indexOrig.html";
         return true;
