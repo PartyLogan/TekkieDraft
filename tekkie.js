@@ -275,7 +275,7 @@ window.onload=function() {
   if(screen.width == 1920){
     document.body.style.zoom="120%"
   }
-  if(screen.width == 1440){
+  if(screen.height == 1440){
     document.body.style.zoom="160%"
   }
   var volumeControl = document.getElementById('vol-control');
