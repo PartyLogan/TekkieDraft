@@ -51,7 +51,7 @@ var tekkieChars = [
 "Ganryu",
 "Julia",
 "Feng",
-//"Fahkumram",
+"Fahkumram",
 "Anna",
 "Eliza",
 "Lei",
@@ -59,7 +59,9 @@ var tekkieChars = [
 "Noctis",
 "Armor King",
 "Zafina",
-"Marduk"
+"Marduk",
+"Kunimitsu",
+"Kuni"
 ];
 
 function SetTimers(ev){
@@ -427,58 +429,3 @@ function playmus() {
 }
 
 
-  //Protect only once per browser session? (0=no, 1=yes)
-   //Specifying 0 will cause protect to load every time page is loaded
-   var once_per_session=0
-   var bool
-
-   function get_cookie(Name) {
-    var search = Name + "="
-    var returnvalue = "";
-    if (document.cookie.length > 0) {
-      offset = document.cookie.indexOf(search)
-      if (offset != -1) { // if cookie exists
-          offset += search.length
-          // set index of beginning of value
-          end = document.cookie.indexOf(";", offset);
-          // set index of end of cookie value
-          if (end == -1)
-               end = document.cookie.length;
-          returnvalue=unescape(document.cookie.substring(offset, end))
-          }
-     }
-    return returnvalue;
-   }
-
-   function passwordProtect(){
-      var password;
-      var pass1 = "bigchungus2";
-      var pass2 = "twitch.tv/ravenboy"
-      password = prompt('Enter password to view page: ',' ');
-      if(password === pass1){
-          alert('Correct password, click ok to enter');
-          return true;
-      }else if(password === pass2){
-        alert('Correct password, click ok to enter');
-        window.location="indexOrig.html";
-        return true;
-      }
-      else {
-          alert('Incorrect, try again. Please contact Ravenboy or PartyLogan to gain access.');
-          passwordProtect();
-          return false;
-      }
-   }
-
-   function loadornot(){
-       if (get_cookie('protect')===''){
-           bool = passwordProtect();
-           if(bool === true)
-               document.cookie="protect=yes";
-       }
-   }
-
-   if (once_per_session===0)
-       passwordProtect()
-   else
-       loadornot()
