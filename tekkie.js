@@ -275,6 +275,9 @@ window.onload=function() {
   if(screen.width == 1920){
     document.body.style.zoom="120%"
   }
+  if(screen.width == 1920){
+    document.body.style.zoom="160%"
+  }
   var volumeControl = document.getElementById('vol-control');
   var volumeMusControl = document.getElementById('mus-control');
   volumeControl.addEventListener('change', changevolume);
@@ -398,9 +401,6 @@ function changevolume() {
   var volumeControl = document.getElementById('vol-control');
   var x = volumeControl.value;
   var y = x / 100;
-  if(y < 0.1){
-    y=0.1;
-  }
   volume = y;
  
  }
@@ -410,9 +410,6 @@ function changevolume() {
   var x = volumeMusControl.value;
   var y = x / 100;
   musvolume = y;
-  if(musvolume < 0.1){
-    musvolume = 0.1;
-  }
   musFile.volume = musvolume;
   musFile.play();
  }
