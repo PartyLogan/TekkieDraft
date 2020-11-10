@@ -51,7 +51,7 @@ var tekkieChars = [
 "Ganryu",
 "Julia",
 "Feng",
-//"Fahkumram",
+"Fahkumram",
 "Anna",
 "Eliza",
 "Lei",
@@ -59,7 +59,9 @@ var tekkieChars = [
 "Noctis",
 "Armor King",
 "Zafina",
-"Marduk"
+"Marduk",
+"Kuni",
+ "Kunimitsu"
 ];
 
 function SetTimers(ev){
