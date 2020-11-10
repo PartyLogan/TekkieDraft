@@ -60,8 +60,7 @@ var tekkieChars = [
 "Armor King",
 "Zafina",
 "Marduk",
-"Kunimitsu",
-"Kuni"
+"Kunimitsu"
 ];
 
 function SetTimers(ev){
