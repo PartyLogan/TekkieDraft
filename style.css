@@ -104,6 +104,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
+  
+  position:absolute;
+  vertical-align: bot;
+  
 }
 
  footer{
