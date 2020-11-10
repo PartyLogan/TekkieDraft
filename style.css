@@ -41,14 +41,18 @@ p {
   vertical-align: top;
   float:left;
   color: white;
+  width: 50%;
   background-color: rgba(90, 90, 90, 0.5)
 }
 
 #baninfo{
   vertical-align: top;
   text-align:right; 
+  float: right;
+  width : 30%;
   position:relative;
   color: white;
+  background-color: rgba(90, 90, 90, 0.5)
 }
 
 #teamA {
